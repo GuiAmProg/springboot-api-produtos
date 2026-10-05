@@ -1,0 +1,130 @@
+# API de Produtos - Spring Boot
+
+Projeto desenvolvido durante meus estudos de **Spring Boot e desenvolvimento de APIs REST**, com foco em persistência de dados, organização em camadas e autenticação utilizando JWT.
+
+## Tecnologias
+
+* Java 21
+* Spring Boot 3.5.5
+* Spring Web
+* Spring Data JPA
+* Spring Security
+* PostgreSQL
+* JWT
+* Maven
+
+## Funcionalidades
+
+* Cadastro de usuários
+* Autenticação de usuários
+* Geração de tokens JWT
+* Criptografia de senhas utilizando BCrypt
+* Cadastro de produtos
+* Listagem de produtos
+* Busca de produto por ID
+* Exclusão de produtos
+* Persistência de dados com PostgreSQL
+* Tratamento de recursos não encontrados
+
+## Estrutura do projeto
+
+O projeto utiliza uma organização em camadas:
+
+```text
+src/main/java/com/example/projeto_youtube/
+├── controller/
+├── exceptions/
+├── model/
+├── repository/
+├── security/
+└── service/
+```
+
+### Principais componentes
+
+* **Controller:** responsável pelo recebimento das requisições HTTP e exposição dos endpoints da API.
+* **Service:** concentra as regras e operações da aplicação.
+* **Repository:** responsável pela comunicação com o banco de dados através do Spring Data JPA.
+* **Model:** representa as entidades persistidas no banco de dados.
+* **Security:** contém a implementação relacionada à geração e validação de tokens JWT.
+* **Exceptions:** contém exceções utilizadas pela aplicação.
+
+## Endpoints
+
+### Autenticação
+
+| Método | Endpoint         | Descrição                         |
+| ------ | ---------------- | --------------------------------- |
+| POST   | `/auth/register` | Cadastra um novo usuário          |
+| POST   | `/auth/login`    | Realiza login e gera um token JWT |
+
+### Produtos
+
+| Método | Endpoint             | Descrição                |
+| ------ | -------------------- | ------------------------ |
+| GET    | `/api/produtos`      | Lista todos os produtos  |
+| GET    | `/api/produtos/{id}` | Busca um produto pelo ID |
+| POST   | `/api/produtos`      | Cadastra um produto      |
+| DELETE | `/api/produtos/{id}` | Exclui um produto        |
+
+### Outros
+
+| Método | Endpoint        | Descrição                     |
+| ------ | --------------- | ----------------------------- |
+| GET    | `/api/mensagem` | Retorna uma mensagem de teste |
+
+## Banco de dados
+
+A aplicação utiliza **PostgreSQL**.
+
+Antes de executar o projeto, configure as informações de conexão com o banco de dados no arquivo:
+
+```text
+src/main/resources/application.properties
+```
+
+Exemplo:
+
+```properties
+spring.datasource.url=jdbc:postgresql://localhost:5432/meubanco
+spring.datasource.username=seu_usuario
+spring.datasource.password=sua_senha
+```
+
+> Não utilize ou publique credenciais reais no repositório.
+
+## Como executar
+
+Clone o repositório:
+
+```bash
+git clone https://github.com/GuiAmProg/springboot-api-produtos.git
+```
+
+Entre na pasta do projeto:
+
+```bash
+cd springboot-api-produtos
+```
+
+Execute a aplicação no Windows:
+
+```bash
+mvnw.cmd spring-boot:run
+```
+
+Ou, utilizando Maven instalado no sistema:
+
+```bash
+mvn spring-boot:run
+```
+
+A aplicação será iniciada localmente na porta padrão do Spring Boot:
+
+```text
+http://localhost:8080
+```
+
+## Objetivo
+
+Este projeto foi desenvolvido como parte dos meus estudos de **Java, Spring Boot, APIs REST, Spring Data JPA, PostgreSQL e autenticação com JWT**, servindo como prática dos conceitos fundamentais do desenvolvimento backend.
